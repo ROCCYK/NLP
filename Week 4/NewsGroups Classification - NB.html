@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html><head></head><body style="color: rgb(32, 33, 34); font-family: undefined;"><p><code>from sklearn.datasets import fetch_20newsgroups</code><br><code>from sklearn.feature_extraction.text import CountVectorizer</code><br><code>from sklearn.model_selection import train_test_split</code><br><code>from sklearn.naive_bayes import MultinomialNB</code><br><code>from sklearn.metrics import accuracy_score</code></p>
+<p><code># Load the 20 Newsgroups dataset</code><br><code>categories = ['alt.atheism', 'soc.religion.christian', 'comp.graphics', 'sci.med']</code><br><code>newsgroups_data = fetch_20newsgroups(subset='all', categories=categories, shuffle=True, random_state=42)</code></p>
+<p><code># Split the dataset into training and testing sets</code><br><code>X_train, X_test, y_train, y_test = train_test_split(</code><br><code>&nbsp; &nbsp; newsgroups_data.data, newsgroups_data.target, test_size=0.2, random_state=42)</code></p>
+<p><code># Create a CountVectorizer to convert text into token counts</code><br><code>vectorizer = CountVectorizer(stop_words='english')</code></p>
+<p><code># Fit and transform the training data</code><br><code>X_train_counts = vectorizer.fit_transform(X_train)</code></p>
+<p><code># Transform the testing data</code><br><code>X_test_counts = vectorizer.transform(X_test)</code></p>
+<p><code># Initialize and train a Naive Bayes classifier (MultinomialNB)</code><br><code>classifier = MultinomialNB()</code><br><code>classifier.fit(X_train_counts, y_train)</code></p>
+<p><code># Predict the labels of the test set</code><br><code>y_pred = classifier.predict(X_test_counts)</code></p>
+<p><code># Evaluate the classifier</code><br><code>accuracy = accuracy_score(y_test, y_pred)</code><br><code>print("Accuracy:", accuracy)</code></p></body></html>

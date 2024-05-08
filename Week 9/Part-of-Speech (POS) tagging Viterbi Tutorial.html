@@ -1,0 +1,744 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						}
+</style><title>Part-of-Speech (POS) tagging Viterbi Tutorial</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='pos-tagging-using-hmm'><span>POS Tagging using HMM</span></h1><h2 id='viterbi-algorithm'><span>Viterbi Algorithm</span></h2><p><strong><span>Uzair Ahmad</span></strong></p><p><span>Hidden Markov Models (HMMs) are powerful probabilistic models used in various fields, including natural language processing (NLP), speech recognition, and bioinformatics. In this tutorial, we&#39;ll start with the basic concepts of HMMs and then delve into their application in Part-of-Speech (POS) tagging, showcasing how the Viterbi algorithm plays a crucial role in this task.</span></p><h3 id='basic-concepts-of-hidden-markov-models-hmms'><span>Basic Concepts of Hidden Markov Models (HMMs):</span></h3><ol start='' ><li><strong><span>States</span></strong><span>: HMMs consist of a set of hidden states, denoted as S. Each state represents a particular underlying situation or condition. In the context of POS tagging, states can represent different POS categories like nouns, verbs, adjectives, etc.</span></li><li><strong><span>Observations</span></strong><span>: At each time step, the HMM emits an observation based on the current state. These observations are visible and known, denoted as O. In POS tagging, observations are the words in a sentence.</span></li><li><strong><span>Transition Probabilities</span></strong><span>: HMMs are defined by transition probabilities, which indicate the likelihood of moving from one state to another. These probabilities are usually represented as a transition matrix, where the entry </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="4.479ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 1979.7 1000" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-4-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-4-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJX-4-TEX-N-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path id="MJX-4-TEX-I-1D457" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path><path id="MJX-4-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-4-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(389,0)"><use data-c="1D456" xlink:href="#MJX-4-TEX-I-1D456"></use></g><g data-mml-node="mo" transform="translate(734,0)"><use data-c="2C" xlink:href="#MJX-4-TEX-N-2C"></use></g><g data-mml-node="mi" transform="translate(1178.7,0)"><use data-c="1D457" xlink:href="#MJX-4-TEX-I-1D457"></use></g><g data-mml-node="mo" transform="translate(1590.7,0)"><use data-c="29" xlink:href="#MJX-4-TEX-N-29"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container><script type="math/tex">(i, j)</script><span> represents the probability of transitioning from state </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="0.781ex" height="1.52ex" role="img" focusable="false" viewBox="0 -661 345 672" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-5-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D456" xlink:href="#MJX-5-TEX-I-1D456"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">i</script><span> to state </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="0.932ex" height="1.957ex" role="img" focusable="false" viewBox="0 -661 412 865" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.462ex;"><defs><path id="MJX-6-TEX-I-1D457" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D457" xlink:href="#MJX-6-TEX-I-1D457"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">j</script><span>.</span></li><li><strong><span>Emission Probabilities</span></strong><span>: Emission probabilities describe the likelihood of observing a particular observation given the current state. In POS tagging, emission probabilities represent the probability of a word belonging to a specific POS category for each state.</span></li></ol><h3 id='application-in-pos-tagging'><span>Application in POS Tagging:</span></h3><p><span>Now, let&#39;s apply HMMs to the task of POS tagging, which involves assigning a POS category (e.g., noun, verb, adjective) to each word in a sentence. Here&#39;s how HMMs are used for this task:</span></p><p><strong><span>State Representation</span></strong><span>: Each state in the HMM corresponds to a POS category. For example, you might have states for &quot;Noun,&quot; &quot;Verb,&quot; &quot;Adjective,&quot; etc.</span></p><p><strong><span>Observations</span></strong><span>: The observations are the words in a given sentence that we want to tag with POS categories.</span></p><p><strong><span>Transition Probabilities</span></strong><span>: Transition probabilities capture the likelihood of transitioning from one POS category to another. For example, the probability of transitioning from a &quot;Noun&quot; state to a &quot;Verb&quot; state might be low, while transitioning from an &quot;Adjective&quot; state to a &quot;Noun&quot; state might be higher. To calculate the transition matrix for POS tagging, you analyze a labeled training corpus to count how often each POS tag transitions to another. Divide these counts by the total transitions from each tag to compute transition probabilities. The matrix&#39;s rows represent current POS tags, columns represent possible next tags, and cells contain the probabilities of transitioning between them. This matrix is a crucial component in Hidden Markov Models, enabling the Viterbi algorithm to find the most likely sequence of POS tags for a given sentence based on observed word transitions. An example transition matrix is given below:</span></p><figure><table><thead><tr><th>&nbsp;</th><th><span>&#39;noun&#39;</span></th><th><span>&#39;verb&#39;</span></th><th><span>End</span></th></tr></thead><tbody><tr><td><span>Start</span></td><td><span>0.37</span></td><td><span>0.14</span></td><td><span>0</span></td></tr><tr><td><span>&#39;noun&#39;</span></td><td><span>0.05</span></td><td><span>0.37</span></td><td><span>0.37</span></td></tr><tr><td><span>&#39;verb&#39;</span></td><td><span>0.37</span></td><td><span>0.05</span></td><td><span>0.37</span></td></tr></tbody></table></figure><p><strong><span>Values in the Matrix:</span></strong></p><ul><li><span>Each cell of the matrix contains a probability value, indicating the likelihood of transitioning from the POS tag represented by the row to the POS tag represented by the column.</span></li><li><span>For example, the value in the &#39;noun&#39; row and &#39;verb&#39; column (0.37) suggests a relatively high probability of transitioning from a &#39;noun&#39; to a &#39;verb&#39; within a sentence.</span></li><li><span>The &#39;Start&#39; row (representing the beginning of a sentence) has probabilities of transitioning to &#39;noun&#39; (0.37) and &#39;verb&#39; (0.14), indicating that a sentence can start with either a noun or a verb.</span></li><li><span>The &#39;Start&#39; row and End&#39; column value is zero because there are no transitions from &#39;Start,&#39; to &#39;End&#39;.</span></li></ul><p><strong><span>Emission Probabilities</span></strong><span>: Emission probabilities indicate the likelihood of observing a specific word given the current POS category. For instance, the emission probability for the word &quot;they&quot; given the state &quot;Noun&quot; should be high, while the emission probability for &quot;they&quot; given the state &quot;Verb&quot; should be low. </span></p><p><span>Here&#39;s an example emission matrix containing emission probabilities: These probabilities are typically estimated from a training corpus,  where you count the number of times a word e.g. &#39;they&#39; appears as a &#39;verb&#39;  and divide it by the total number of times &#39;verb&#39; occurs. This is done  for all words and POS tag combinations to construct the emission matrix.</span></p><figure><table><thead><tr><th>&nbsp;</th><th><span>&#39;They&#39;</span></th><th><span>&#39;can&#39;</span></th><th><span>&#39;fish&#39;</span></th></tr></thead><tbody><tr><td><span>&#39;noun&#39;</span></td><td><span>0.14</span></td><td><span>0.05</span></td><td><span>0.05</span></td></tr><tr><td><span>&#39;verb&#39;</span></td><td><span>0.00004</span></td><td><span>0.37</span></td><td><span>0.05</span></td></tr></tbody></table></figure><p><span>Essentially, the emission matrix represents the probabilities of observing specific words (&#39;They,&#39; &#39;can,&#39; &#39;fish&#39;) given particular POS tags (&#39;noun&#39; and &#39;verb&#39;). Here&#39;s how the values in the matrix are calculated:</span></p><ul><li><p><span>For &#39;They&#39;:</span></p><ul><li><span>The value of 0.14 in the &#39;noun&#39; row indicates that there is a 14% chance that the word &#39;They&#39; will be observed when the POS tag is &#39;noun.&#39;</span></li><li><span>Similarly, the value of 0.00004 in the &#39;verb&#39; row indicates a very low probability of observing &#39;They&#39; when the POS tag is &#39;verb.&#39;</span></li></ul></li><li><p><span>For &#39;can&#39;:</span></p><ul><li><span>The value of 0.05 in the &#39;noun&#39; row suggests a 5% chance of observing the word &#39;can&#39; when the POS tag is &#39;noun.&#39;</span></li><li><span>In contrast, the value of 0.37 in the &#39;verb&#39; row indicates a 37% probability of observing &#39;can&#39; when the POS tag is &#39;verb.&#39;</span></li></ul></li><li><p><span>For &#39;fish&#39;:</span></p><ul><li><span>The value of 0.05 in the &#39;noun&#39; and &#39;verb&#39; rows imply a 5% chance of observing the word &#39;fish&#39; when the POS tag is &#39;noun&#39; as well as &#39;verb&#39;.</span></li></ul></li></ul><p><span>These probabilities reflect the association between words and POS tags and are used in conjunction with the transition matrix to perform tasks like Part-of-Speech tagging using Hidden Markov Models.</span></p><h2 id='viterbi-algorithm-for-pos-tagging'><span>Viterbi Algorithm for POS Tagging:</span></h2><p><span>The Viterbi algorithm is used to find the most likely sequence of states (POS tags) given a sequence of observations (words in a sentence) in an HMM. Let&#39;s go through the step-by-step forward pass of the Viterbi algorithm for the sentence &#39;They can fish&#39; using the provided transition and emission matrices. We will create the Viterbi variable V[m] and backtracking pointers b[m] at each step m.</span></p><ul><li><span>The backtracking pointer is used to keep track of the best path or  sequence of tags that leads to the maximum probability up to a  particular word. For the first word, you simply compute the  probabilities for all possible tags and choose the one with the highest  probability as the initial tag for that word.</span></li></ul><h3 id='step-1-initialization-with-they'><span>Step 1: Initialization with &#39;they&#39;</span></h3><p><span>In the initialization step, we start with the first word &#39;They&#39; and calculate the initial Viterbi variables V[1] and set the backtracking pointers b[1] for each part of speech (Noun &#39;N&#39; and Verb &#39;V&#39;). The goal is to determine the most likely part of speech for the first word.</span></p><ol start='' ><li><p><span>Calculate V[1] for &#39;N&#39;:</span></p><ul><li><p><span>V</span><span>[</span><span>1][&#39;N&#39;] represents the maximum probability of the sequence ending in &#39;N&#39; at the first position.</span></p></li><li><p><span>To calculate it, we consider:</span></p><ul><li><span>The probability of transitioning from the &#39;Start&#39; state to &#39;N&#39; in the transition matrix, which is P(&#39;Start&#39; -&gt; &#39;N&#39;) = 0.37.</span></li><li><span>The probability of emitting &#39;They&#39; given &#39;N&#39; in the emission matrix, which is P(&#39;They&#39; | &#39;N&#39;) = 0.14.</span></li></ul></li><li><p><span>V</span><span>[</span><span>1][&#39;N&#39;] = P(&#39;Start&#39; -&gt; &#39;N&#39;) * P(&#39;They&#39; | &#39;N&#39;) = 0.37 * 0.14 = 0.0518</span></p></li><li><p><span>So, V</span><span>[</span><span>1][&#39;N&#39;] = 0.0518.</span></p></li></ul></li><li><p><span>Calculate V[1] for &#39;V&#39;:</span></p><ul><li><p><span>Similarly, we calculate V</span><span>[</span><span>1][&#39;V&#39;] for the &#39;V&#39; part of speech:</span></p><ul><li><span>V</span><span>[</span><span>1][&#39;V&#39;] = P(&#39;Start&#39; -&gt; &#39;V&#39;) * P(&#39;They&#39; | &#39;V&#39;)</span></li><li><span>Using the transition and emission probabilities:</span></li><li><span>V</span><span>[</span><span>1][&#39;V&#39;] = 0.14 * 0.00004 = 0.0000056</span></li></ul></li></ul></li><li><p><span>Set the backtracking pointers b[1]:</span></p><ul><li><p><span>To keep track of the most likely path, we set b</span><span>[</span><span>1][&#39;N&#39;] and b</span><span>[</span><span>1][&#39;V&#39;] based on the maximum probability calculated in the previous steps. </span></p><ul><li><span>Since V</span><span>[</span><span>1][&#39;N&#39;] &gt; V</span><span>[</span><span>1][&#39;V&#39;], we set b</span><span>[</span><span>1][&#39;N&#39;] = &#39;Start&#39; (indicating that &#39;N&#39; is the most likely part of speech for the first word) and b</span><span>[</span><span>1][&#39;V&#39;] = &#39;Start&#39;.</span></li></ul></li></ul></li></ol><p><span>This is the first step, so we will set b[1] as &#39;Start&#39; for both &#39;N&#39; and &#39;V&#39;. After the initialization step, we have the following values:</span></p><ul><li><span>V</span><span>[</span><span>1][&#39;N&#39;] = 0.0518</span></li><li><span>V</span><span>[</span><span>1][&#39;V&#39;] = 0.0000056</span></li><li><span>b</span><span>[</span><span>1][&#39;N&#39;] = &#39;Start&#39;</span></li><li><span>b</span><span>[</span><span>1][&#39;V&#39;] = &#39;Start&#39;</span></li></ul><p><span>These values represent the initial probabilities and backtracking information for the first word &#39;They&#39; in the sentence. In subsequent steps, we will continue to calculate V[m] and update the backtracking pointers based on the transition and emission probabilities for the remaining words in the sentence.</span></p><h3 id='step-2-recursion'><span>Step 2: Recursion </span></h3><h4 id='for-can'><span>for &#39;can&#39;</span></h4><p><span>We are now processing the word &#39;can,&#39; and we want to calculate the Viterbi variables V[2] and update the backtracking pointers b[2] for each part of speech (&#39;N&#39; and &#39;V&#39;).</span></p><ol start='' ><li><p><span>Calculate V[2] for &#39;N&#39;:</span></p><ul><li><p><span>V</span><span>[</span><span>2][&#39;N&#39;] represents the maximum probability of the sequence ending in &#39;N&#39; at the second position (word &#39;can&#39;).</span></p></li><li><p><span>To calculate it, we consider:</span></p><ul><li><p><span>The two possible paths that could lead to &#39;N&#39; at this position:</span></p><ul><li><span>From the previous &#39;N&#39; state (&#39;N&#39; -&gt; &#39;N&#39; transition) to &#39;N&#39; at this position.</span></li><li><span>From the previous &#39;V&#39; state (&#39;V&#39; -&gt; &#39;N&#39; transition) to &#39;N&#39; at this position.</span></li></ul></li><li><p><span>The emission probability of &#39;can&#39; given &#39;N&#39; in the emission matrix, which is P(&#39;can&#39; | &#39;N&#39;) = 0.05.</span></p></li></ul></li><li><p><span>We calculate both possibilities and choose the maximum:</span></p><ul><li><span>Path 1: V</span><span>[</span><span>1][&#39;N&#39;] * P(&#39;N&#39; -&gt; &#39;N&#39;) * P(&#39;can&#39; | &#39;N&#39;) = 0.0518 * 0.05 * 0.05 = 0.0001295</span></li><li><span>Path 2: V</span><span>[</span><span>1][&#39;V&#39;] * P(&#39;V&#39; -&gt; &#39;N&#39;) * P(&#39;can&#39; | &#39;N&#39;) = 0.0000056 * 0.14 * 0.05 = 3.936e-07</span></li></ul></li><li><p><span>Since V</span><span>[</span><span>2][&#39;N&#39;] from Path 1 is greater, we take that value as the maximum.</span></p></li><li><p><span>V</span><span>[</span><span>2][&#39;N&#39;] = 0.0001295</span></p></li></ul></li><li><p><span>Calculate V[2] for &#39;V&#39;:</span></p><ul><li><p><span>Similarly, we calculate V</span><span>[</span><span>2][&#39;V&#39;] for the &#39;V&#39; part of speech:</span></p><ul><li><p><span>V</span><span>[</span><span>2][&#39;V&#39;] represents the maximum probability of the sequence ending in &#39;V&#39; at the second position (&#39;can&#39;).</span></p></li><li><p><span>We consider the same two possible paths as for &#39;N&#39; but now focus on the &#39;V&#39; state:</span></p><ul><li><span>Path 1: V</span><span>[</span><span>1][&#39;N&#39;] * P(&#39;N&#39; -&gt; &#39;V&#39;) * P(&#39;can&#39; | &#39;V&#39;) = 0.0518 * 0.37 * 0.37 = 0.00709142</span></li><li><span>Path 2: V</span><span>[</span><span>1][&#39;V&#39;] * P(&#39;V&#39; -&gt; &#39;V&#39;) * P(&#39;can&#39; | &#39;V&#39;) = 0.0000056 * 0.05 * 0.37 = 1.036e-07</span></li></ul></li></ul></li><li><p><span>Since V</span><span>[</span><span>2][&#39;V&#39;] from Path 1 is greater, we take that value as the maximum.</span></p></li><li><p><span>V</span><span>[</span><span>2][&#39;V&#39;] = 0.00709142</span></p></li></ul></li><li><p><span>Set the backtracking pointers b[2]:</span></p><ul><li><p><span>We update the backtracking pointers based on the maximum probabilities calculated in the previous steps:</span></p><ul><li><span>Since V</span><span>[</span><span>2][&#39;V&#39;] &gt; V</span><span>[</span><span>2][&#39;N&#39;], we set b</span><span>[</span><span>2][&#39;N&#39;] = &#39;V&#39; (indicating that &#39;V&#39; is the most likely part of speech for the word &#39;can&#39;) and b</span><span>[</span><span>2][&#39;V&#39;] = &#39;V&#39;.</span></li></ul></li></ul></li></ol><p><span>We have the following values:</span></p><ul><li><span>V</span><span>[</span><span>2][&#39;N&#39;] = 0.0001295</span></li><li><span>V</span><span>[</span><span>2][&#39;V&#39;] = 0.00709142</span></li><li><span>b</span><span>[</span><span>2][&#39;N&#39;] = &#39;V&#39;</span></li><li><span>b</span><span>[</span><span>2][&#39;V&#39;] = &#39;V&#39;</span></li></ul><p><span>These values represent the updated probabilities and backtracking information after processing the word &#39;can.&#39; We will continue this process for the remaining words in the sentence.</span></p><h4 id='for-fish'><span>for &#39;fish&#39;</span></h4><p><span>We are now processing the word &#39;fish,&#39; and we want to calculate the Viterbi variables V[3] and update the backtracking pointers b[3] for each part of speech (&#39;N&#39; and &#39;V&#39;).</span></p><ol start='' ><li><p><span>Calculate V[3] for &#39;N&#39;:</span></p><ul><li><p><span>V</span><span>[</span><span>3][&#39;N&#39;] represents the maximum probability of the sequence ending in &#39;N&#39; at the third position (word &#39;fish&#39;).</span></p></li><li><p><span>To calculate it, we consider:</span></p><ul><li><p><span>The two possible paths that could lead to &#39;N&#39; at this position:</span></p><ul><li><span>From the previous &#39;N&#39; state (&#39;N&#39; -&gt; &#39;N&#39; transition) to &#39;N&#39; at this position.</span></li><li><span>From the previous &#39;V&#39; state (&#39;V&#39; -&gt; &#39;N&#39; transition) to &#39;N&#39; at this position.</span></li></ul></li><li><p><span>The emission probability of &#39;fish&#39; given &#39;N&#39; in the emission matrix, which is P(&#39;fish&#39; | &#39;N&#39;) = 0.05.</span></p></li></ul></li><li><p><span>We calculate both possibilities and choose the maximum:</span></p><ul><li><span>Path 1:  V</span><span>[</span><span>2][&#39;N&#39;] * P(&#39;N&#39; -&gt; &#39;N&#39;) * P(&#39;fish&#39; | &#39;N&#39;) = 0.0001295 * 0.05 * 0.05 = 3.2375e-08</span></li><li><span>Path 2:  V</span><span>[</span><span>2][&#39;V&#39;] * P(&#39;V&#39; -&gt; &#39;N&#39;) * P(&#39;fish&#39; | &#39;N&#39;) = 0.00709142 * 0.37 * 0.05 = 0.00013119127</span></li></ul></li><li><p><span>Since probability of Path 2 is greater, we take that value as the V</span><span>[</span><span>3][&#39;N&#39;] .</span></p></li><li><p><span>V</span><span>[</span><span>3][&#39;N&#39;] = 0.00013119127</span></p></li></ul></li><li><p><span>Calculate V[3] for &#39;V&#39;:</span></p><ul><li><p><span>Similarly, we calculate V</span><span>[</span><span>3][&#39;V&#39;] for the &#39;V&#39; part of speech:</span></p><ul><li><p><span>V</span><span>[</span><span>3][&#39;V&#39;] represents the maximum probability of the sequence ending in &#39;V&#39; at the third position (&#39;fish&#39;).</span></p></li><li><p><span>We consider the same two possible paths as for &#39;N&#39; but now focus on the &#39;V&#39; state:</span></p><ul><li><span>Path 1: V</span><span>[</span><span>2][&#39;N&#39;] * P(&#39;N&#39; -&gt; &#39;V&#39;) * P(&#39;fish&#39; | &#39;V&#39;) = 0.0001295 * 0.37 * 0.05 = 2.39575e-06</span></li><li><span>Path 2: V</span><span>[</span><span>2][&#39;V&#39;] * P(&#39;V&#39; -&gt; &#39;V&#39;) * P(&#39;fish&#39; | &#39;V&#39;) =  0.00709142 * 0.05 * 0.05 = 1.772855e-05</span></li></ul></li></ul></li><li><p><span>This time, V</span><span>[</span><span>3][&#39;N&#39;] from Path 2 is greater, so we take that value as the maximum.</span></p></li><li><p><span>V</span><span>[</span><span>3][&#39;V&#39;] = 1.772855e-05</span></p></li></ul></li><li><p><span>Set the backtracking pointers b[3]:</span></p><ul><li><p><span>We update the backtracking pointers based on the maximum probabilities calculated in the previous steps:</span></p><ul><li><span>Since V</span><span>[</span><span>3][&#39;N&#39;] &gt; V</span><span>[</span><span>3][&#39;V&#39;], we set b</span><span>[</span><span>3][&#39;N&#39;] = &#39;N&#39; (indicating that &#39;N&#39; is the most likely part of speech for the word &#39;fish&#39;) and b</span><span>[</span><span>3][&#39;V&#39;] = &#39;N&#39;.</span></li></ul></li></ul></li></ol><p><span>After the recursion step for the word &#39;fish,&#39; we have the following values:</span></p><ul><li><span>V</span><span>[</span><span>3][&#39;N&#39;] =  0.00013119127</span></li><li><span>V</span><span>[</span><span>3][&#39;V&#39;] = 1.772855e-05</span></li><li><span>b</span><span>[</span><span>3][&#39;N&#39;] = &#39;N&#39;</span></li><li><span>b</span><span>[</span><span>3][&#39;V&#39;] = &#39;N&#39;</span></li></ul><p><span>These values represent the updated probabilities and backtracking information after processing the word &#39;fish.&#39; </span></p><h3 id='step-4-termination-for-end'><span>Step 4: Termination for &#39;End&#39;</span></h3><p><span>In the termination step, we consider the &#39;End&#39; state, which signifies the end of the sentence. We calculate the Viterbi variables V[4] for both parts of speech (&#39;N&#39; and &#39;V&#39;) and update the backtracking pointers b[4] accordingly.</span></p><ol start='' ><li><p><span>Calculate V[4] for &#39;N&#39;:</span></p><ul><li><p><span>V</span><span>[</span><span>4][&#39;N&#39;] represents the maximum probability of the sequence ending in &#39;N&#39; at the end of the sentence (word &#39;End&#39;).</span></p></li><li><p><span>To calculate it, we consider:</span></p><ul><li><p><span>The two possible paths that could lead to &#39;N&#39; at the end:</span></p><ul><li><span>From the previous &#39;N&#39; state (&#39;N&#39; -&gt; &#39;End&#39; transition) to &#39;N&#39; at the end.</span></li><li><span>From the previous &#39;V&#39; state (&#39;V&#39; -&gt; &#39;End&#39; transition) to &#39;N&#39; at the end.</span></li></ul></li><li><p><span>The transition probabilities for transitioning to &#39;End&#39; from &#39;N&#39; and &#39;V&#39; are given in the transition matrix as P(&#39;N&#39; -&gt; &#39;End&#39;) = 0.37 and P(&#39;V&#39; -&gt; &#39;End&#39;) = 0.37, respectively.</span></p></li><li><p><strong><span>Note:</span></strong><span> The &#39;End&#39; tag is just an annotation, we do not have consider emission probability in the termination step.</span></p></li></ul></li><li><p><span>We calculate both possibilities and choose the maximum:</span></p><ul><li><span>Path 1: V</span><span>[</span><span>3][&#39;N&#39;] * P(&#39;N&#39; -&gt; &#39;End&#39;) * = 0.000013987 * 0.37 = 5.1739e-06</span></li><li><span>Path 2: V</span><span>[</span><span>3][&#39;V&#39;] * P(&#39;V&#39; -&gt; &#39;End&#39;) = 1.636e-05 * 0.37 = 6.0482e-06</span></li></ul></li><li><p><span>Since V</span><span>[</span><span>4][&#39;V&#39;] from Path 2 is greater, we take that value as the maximum.</span></p></li><li><p><span>V</span><span>[</span><span>4][&#39;N&#39;] = 6.0482e-06</span></p></li></ul></li><li><p><span>Calculate V[4] for &#39;V&#39;:</span></p><ul><li><p><span>Similarly, we calculate V</span><span>[</span><span>4][&#39;V&#39;] for the &#39;V&#39; part of speech:</span></p><ul><li><p><span>We consider the same two possible paths as for &#39;N&#39; but now focus on the &#39;V&#39; state:</span></p><ul><li><span>Path 1: V</span><span>[</span><span>3][&#39;N&#39;] * P(&#39;N&#39; -&gt; &#39;End&#39;) = 0.000013987 * 0.37 = 5.1739e-06</span></li><li><span>Path 2: V</span><span>[</span><span>3][&#39;V&#39;] * P(&#39;V&#39; -&gt; &#39;End&#39;) = 1.636e-05 * 0.37 = 6.0482e-06</span></li></ul></li></ul></li><li><p><span>This time, V</span><span>[</span><span>4][&#39;N&#39;] from Path 2 is greater, so we take that value as the maximum.</span></p></li><li><p><span>V</span><span>[</span><span>4][&#39;V&#39;] = 6.0482e-06</span></p></li></ul></li><li><p><span>Set the backtracking pointers b[4]:</span></p><ul><li><p><span>We update the backtracking pointers based on the maximum probabilities calculated in the previous steps:</span></p><ul><li><span>Since V</span><span>[</span><span>4][&#39;N&#39;] &gt; V</span><span>[</span><span>4][&#39;V&#39;], we set b</span><span>[</span><span>4][&#39;N&#39;] = &#39;N&#39; (indicating that &#39;N&#39; is the most likely part of speech at the end of the sentence) and b</span><span>[</span><span>4][&#39;V&#39;] = &#39;N&#39;.</span></li></ul></li></ul></li></ol><p><span>After the termination step for the &#39;End&#39; state, we have the following values:</span></p><ul><li><span>V</span><span>[</span><span>4][&#39;N&#39;] = 5.1739e-06</span></li><li><span>V</span><span>[</span><span>4][&#39;V&#39;] = 6.0482e-06</span></li><li><span>b</span><span>[</span><span>4][&#39;N&#39;] = &#39;N&#39;</span></li><li><span>b</span><span>[</span><span>4][&#39;V&#39;] = &#39;N&#39;</span></li></ul><p><span>These values represent the final probabilities and backtracking information after processing the entire sentence. Now, we can use the backtracking pointers to find the most likely sequence of part-of-speech tags by tracing back through the Viterbi matrix.</span></p><h3 id='backtracking'><span>Backtracking</span></h3><p><span>Let&#39;s go through the backtracking process step-by-step, keeping in context the calculations we made in the previous steps. We will use the backtracking pointers (b[m]) to find the most likely sequence of part-of-speech tags.</span></p><ol start='' ><li><p><span>Start at the &#39;End&#39; state:</span></p><ul><li><p><span>We start at the &#39;End&#39; state in V[4] and look at the backtracking pointers for &#39;N&#39; and &#39;V&#39; at this position:</span></p><ul><li><span>b</span><span>[</span><span>4][&#39;N&#39;] = &#39;N&#39;</span></li><li><span>b</span><span>[</span><span>4][&#39;V&#39;] = &#39;N&#39;</span></li></ul></li><li><p><span>Since b</span><span>[</span><span>4][&#39;N&#39;] &gt; b</span><span>[</span><span>4][&#39;V&#39;], we follow the &#39;N&#39; path.</span></p></li></ul></li><li><p><span>Move to the previous state m = 3:</span></p><ul><li><span>We move to the previous state at position 3 based on our choice of &#39;N&#39; in the &#39;End&#39; state.</span></li><li><span>Now, we are at V[3].</span></li></ul></li><li><p><span>Continue backtracking:</span></p><ul><li><p><span>We look at the backtracking pointers for &#39;N&#39; and &#39;V&#39; at this position:</span></p><ul><li><span>b</span><span>[</span><span>3][&#39;N&#39;] = &#39;V&#39;</span></li><li><span>b</span><span>[</span><span>3][&#39;V&#39;] = &#39;V&#39;</span></li></ul></li><li><p><span>Since b</span><span>[</span><span>3][&#39;V&#39;] &gt; b</span><span>[</span><span>3][&#39;N&#39;], we follow the &#39;V&#39; path.</span></p></li></ul></li><li><p><span>Move to the previous state m = 2:</span></p><ul><li><span>We move to the previous state at position 2 based on our choice of &#39;V&#39; in position 3.</span></li><li><span>Now, we are at V[2].</span></li></ul></li><li><p><span>Continue backtracking:</span></p><ul><li><p><span>We look at the backtracking pointers for &#39;N&#39; and &#39;V&#39; at this position:</span></p><ul><li><span>b</span><span>[</span><span>2][&#39;N&#39;] = &#39;N&#39;</span></li><li><span>b</span><span>[</span><span>2][&#39;V&#39;] = &#39;N&#39;</span></li></ul></li><li><p><span>Since b</span><span>[</span><span>2][&#39;N&#39;] &gt; b</span><span>[</span><span>2][&#39;V&#39;], we follow the &#39;N&#39; path.</span></p></li></ul></li><li><p><span>Move to the previous state m = 1:</span></p><ul><li><span>We move to the previous state at position 1 based on our choice of &#39;N&#39; in position 2.</span></li><li><span>Now, we are at V[1].</span></li></ul></li><li><p><span>Continue backtracking:</span></p><ul><li><p><span>We look at the backtracking pointers for &#39;N&#39; and &#39;V&#39; at this position:</span></p><ul><li><span>b</span><span>[</span><span>1][&#39;N&#39;] = &#39;Start&#39;</span></li><li><span>b</span><span>[</span><span>1][&#39;V&#39;] = &#39;Start&#39;</span></li></ul></li><li><p><span>Since we have reached the &#39;Start&#39; state, the backtracking process ends.</span></p></li></ul></li><li><p><span>Final result:</span></p><ul><li><span>The backtracking process has ended, and we have traced back through the Viterbi matrix using the backtracking pointers.</span></li><li><span>The sequence of part-of-speech tags that corresponds to the highest probability path is &#39;N&#39; -&gt; &#39;V&#39; -&gt; &#39;N&#39;, which represents the tags for the words &#39;They&#39; -&gt; &#39;can&#39; -&gt; &#39;fish&#39; in the sentence.</span></li></ul></li></ol><p><span>So, by following the backtracking pointers, we have determined that the most likely sequence of part-of-speech tags for the sentence &#39;They can fish&#39; is &#39;N&#39; -&gt; &#39;V&#39; -&gt; &#39;N&#39;, corresponding to &#39;They&#39; -&gt; &#39;can&#39; -&gt; &#39;fish&#39;.</span></p><p>&nbsp;</p><h4 id='summary'><span>Summary</span></h4><p><span>The Viterbi algorithm efficiently finds the most probable sequence of POS tags for a given sentence, making it a valuable tool for various NLP tasks, including machine translation, speech recognition, and information retrieval.</span></p><ol start='' ><li><span>The Viterbi variable and backward pointer path together allow the Viterbi algorithm to efficiently find the most likely sequence of states in a Hidden Markov Model.</span></li><li><strong><span>Recursion</span></strong><span>: For each observation (word) in the sentence, calculate the probability of being in each state at that point. This involves considering both the transition probabilities and the emission probabilities.</span></li><li><strong><span>Backtracking</span></strong><span>: Keep track of the most likely path (sequence of POS tags) at each step by considering the probabilities calculated in the recursion step. This allows you to find the most likely sequence of POS tags for the entire sentence.</span></li><li><strong><span>Termination</span></strong><span>: Once you have processed all observations, find the state with the highest probability as the final POS tag for the corresponding word.</span></li></ol><p><span>In summary, Hidden Markov Models, when applied to POS tagging, provide a probabilistic framework for assigning POS categories to words in a sentence. The Viterbi algorithm is a key component that helps find the optimal sequence of POS tags, making it a fundamental tool in natural language processing and computational linguistics.</span></p></div></div>
+</body>
+</html>
